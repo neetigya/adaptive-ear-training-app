@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* Font Family */
+    --font-sans: 'Inter', system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    
+    /* Primary Color Palette - Purple */
+    --color-primary-50: #f5f3ff;
+    --color-primary-100: #ede9fe;
+    --color-primary-500: #8b5cf6;  /* Main purple */
+    --color-primary-600: #7c3aed;
+    --color-primary-700: #6d28d9;
+    --color-primary-900: #4c1d95;
+    
+    /* Secondary Color Palette - Accent Green */
+    --color-secondary-500: #10b981;  /* Accent green */
+}
+
+/* Global Styles */
+body {
+    @apply min-h-screen;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+}
+
+/* Reusable Component Classes */
+
+/* Page Container */
+.page-container {
+    @apply container mx-auto px-4 py-8 max-w-7xl;
+}
+
+/* Page Heading */
+.page-heading {
+    @apply text-4xl md:text-5xl font-bold text-center text-primary-900 uppercase tracking-wide mb-12;
+}
+
+/* Card Component */
+.card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6;
+}
+
+/* Card Grid Layout */
+.card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+/* Primary Button */
+.btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg 
+           transition-all duration-200 transform hover:scale-105 shadow-md;
+}
+
+/* Section Title */
+.section-title {
+    @apply text-2xl font-bold text-gray-800 mb-4;
+}
+
+/* Skeleton Loading State */
+.skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+}
+
+/* Navbar (for future pages) */
+.navbar {
+    @apply bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50;
+}
+
+/* Legacy Classes (for backward compatibility) */
+.mainHeading {
+    @apply text-center uppercase text-6xl font-bold text-primary-900;
+}
+
+/* Note Play Button */
+.btn-play {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg 
+           transition-all duration-200 transform hover:scale-105 shadow-md;
+}
+
+.btn-select-parent {
+    @apply grid grid-cols-3 grid-rows-3 gap-6
+}
+
+/* Note Select Buttons */
+.btn-select {
+    @apply  bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg 
+           transition-all duration-200 transform hover:scale-105 shadow-md;
+}
