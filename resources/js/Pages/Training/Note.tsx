@@ -43,7 +43,7 @@ function Note() {
    * targetNotesForDifficulty: Currently unused - might be for future feature
    */
   const [difficultyLevel, setDifficultyLevel] = useState('EASY');
-  const [selectionNotesForDifficulty, setSelectionNotesForDifficulty] = useState(null);
+  const [selectionNotesForDifficulty, setSelectionNotesForDifficulty] = useState(NOTES_EASY);
   const [targetNotesForDifficulty, setTargetNoteForDifficulty] = useState(null);
   
   /**
@@ -79,10 +79,6 @@ function Note() {
     }
   }
 
-  // Called on every render - should be optimized
-  SetNotesForDifficultyLevel();
-
-
   /**
    * TRAINING STATE
    * 
@@ -116,7 +112,9 @@ function Note() {
    */
   function getRandomNote(nums_alphabets: number){
     const targetNoteNum = getRandomIntegerInclusive(0,nums_alphabets);
+    console.log("tar" + targetNoteNum)
     console.log(selectionNotesForDifficulty);
+
     return selectionNotesForDifficulty[targetNoteNum]['id'];
   }
 
@@ -147,6 +145,7 @@ function Note() {
    * instead of being called. Should be: getRandomNote(numberOfNotes)
    */
   function handleNext(){
+    console.log("num" + numberOfNotes);
     setTargetNote(getRandomNote);
     setResult(null);
   }

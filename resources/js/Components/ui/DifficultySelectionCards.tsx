@@ -13,7 +13,7 @@
  */
 
 import React, {Component} from 'react'
-
+import {DIFFICULTY_LEVELS} from './../../Constants/DifficultyLevels'
 
 class DifficultySelectionCard extends Component{
 	/**
@@ -29,17 +29,24 @@ class DifficultySelectionCard extends Component{
 	 */
 	render(){
 		return (
-			// ERROR: difficultyLevels is not defined - should import DIFFICULTY_LEVELS
-			difficultyLevels.map((m) =>{
+			Object.entries(DIFFICULTY_LEVELS).map(([key, value]) => {
+				return (
+					<div> 
+						<button className ="btn-primary"> {value.label} </button>
+						<div> {value.description}</div>
+					 </div>
+					)
+			}
+		)
+
+			/*DIFFICULTY_LEVELS.map((m) =>{
 				return(
 					 <div> 
-						{/* Difficulty level button - should update difficultyLevel state on click */}
 						<button className ="btn-primary"> {m.label} </button>
-						{/* Difficulty description */}
 						<div> {m.description}</div>
 					 </div>
 				)
-			})
+			}*/
 		)
 	}
 }	
