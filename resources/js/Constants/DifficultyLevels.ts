@@ -14,7 +14,7 @@
 export const DIFFICULTY_LEVELS: {
   [key: string ] : {
       id: string
-      lable: string  // NOTE: Typo - should be "label" (also see label property below)
+      label: string
       description: string
       numberOfNotes: number
     }

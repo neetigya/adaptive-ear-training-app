@@ -11,10 +11,9 @@
  * This uses an object/map structure for O(1) direct lookup performance.
  * When you need to play "C4", you can instantly get 261.63 Hz without searching.
  * 
- * NOTE: Currently only includes C4-B4 (one octave) for EASY mode.
- * The commented section below shows the full range (C2-G7) that would be
- * needed for HARD mode. Uncomment and use that version when implementing
- * full multi-octave support.
+ * NOTE: Currently only C4-B4 (7 natural notes) - sufficient for EASY mode.
+ * MEDIUM needs sharps (C#4, D#4, etc.); HARD needs C3-B5. Use the commented
+ * section below when implementing MEDIUM/HARD.
  */
 export const NOTE_FREQUENCIES: {
     [key: string]: number;

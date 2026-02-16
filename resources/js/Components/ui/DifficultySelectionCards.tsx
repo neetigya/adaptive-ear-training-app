@@ -1,15 +1,13 @@
 /**
  * DIFFICULTY SELECTION CARDS COMPONENT
  * 
- * Component intended to display difficulty level selection cards.
- * Allows users to choose between EASY, MEDIUM, HARD, and PITCH_PERFECT difficulty levels.
+ * Displays difficulty level selection cards (EASY, MEDIUM, HARD, PITCH_PERFECT).
+ * Uses Object.entries(DIFFICULTY_LEVELS) to iterate over the difficulty config.
  * 
- * NOTE: This component has issues:
- * 1. References 'difficultyLevels' which is not imported or defined
- * 2. Should import DIFFICULTY_LEVELS from Constants/DifficultyLevels
- * 3. Should handle click events to update difficulty level state
- * 4. Component name is DifficultySelectionCard (singular) but file/export is plural
- * 5. Currently not functional - needs to be connected to parent component state
+ * NOTE: Display only - not yet functional. To make it work:
+ * - Add onClick handlers to update parent state (difficultyLevel)
+ * - Pass setDifficultyLevel from Note.tsx as a prop
+ * - Add visual feedback for the currently selected difficulty
  */
 
 import React, {Component} from 'react'
@@ -19,13 +17,10 @@ class DifficultySelectionCard extends Component{
 	/**
 	 * Renders difficulty level selection cards
 	 * 
-	 * Maps over difficulty levels to create clickable cards for each difficulty.
-	 * Each card displays the difficulty label and description.
+	 * Maps over DIFFICULTY_LEVELS (via Object.entries) to create a card for each
+	 * difficulty. Each card displays the label and description.
 	 * 
-	 * NOTE: This will throw an error because 'difficultyLevels' is not defined.
-	 * Should import DIFFICULTY_LEVELS and convert object to array, or pass as prop.
-	 * 
-	 * @returns {JSX.Element} Array of difficulty selection cards
+	 * @returns {JSX.Element} Array of difficulty selection card elements
 	 */
 	render(){
 		return (
@@ -38,15 +33,6 @@ class DifficultySelectionCard extends Component{
 					)
 			}
 		)
-
-			/*DIFFICULTY_LEVELS.map((m) =>{
-				return(
-					 <div> 
-						<button className ="btn-primary"> {m.label} </button>
-						<div> {m.description}</div>
-					 </div>
-				)
-			}*/
 		)
 	}
 }	

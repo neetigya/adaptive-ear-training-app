@@ -37,13 +37,14 @@ export type TrainingMode =
  * - label: Display name shown on the card (e.g., "Reference Note")
  * - description: Brief explanation of what the training mode teaches
  * 
- * NOTE: Currently all modes link to the same route (/training/note).
- * In the future, each mode should have its own dedicated route and component.
+ * Each mode has a route property used by ModuleCard for navigation.
+ * Note: Only /training/note has a corresponding page; other routes need to be implemented.
  */
 export const TRAINING_MODES: {
 id: string;
 label: string;
 description: string
+route: string
 }[] = [
   /**
    * Reference Note Training
@@ -54,6 +55,7 @@ description: string
     id: "referenceNote",
     label: "Reference Note",
     description: "Use reference note to find the target note.",
+    route:"note"
   },
   /**
    * Interval Training
@@ -64,6 +66,7 @@ description: string
     id: "intervals",
     label: "Identify the interval between two notes",
     description: "Train your ear to recognize intervals and their sizes.",
+     route:"interval"
   },
   /**
    * Scale Training
@@ -74,6 +77,7 @@ description: string
     id: "scale",
     label: "Identify the Scale",
     description: "Train your ear to recognize scale.",
+    route:"scale"
   },
   /**
    * Chord Training
@@ -84,6 +88,7 @@ description: string
     id: "chord",
     label: "Identify the Chord",
     description: "Train your ear to recognize the chord.",
+    route:"chord"
   },
   /**
    * Triad Training
@@ -94,6 +99,7 @@ description: string
     id: "triads",
     label: "Triads",
     description: "Train your ear to recognize triads and their chords.",
+    route:"triad"
   }
   
 ]

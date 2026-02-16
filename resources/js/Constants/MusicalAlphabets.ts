@@ -2,19 +2,15 @@
  * MUSICAL ALPHABETS CONSTANT
  * 
  * Defines the basic musical note names (C, D, E, F, G, A, B) in a structured format.
- * This represents the natural notes (no sharps or flats) in one octave.
+ * Represents the natural notes (no sharps or flats) in one octave (C4-B4).
  * 
  * Structure:
  * - id: Full note identifier with octave (e.g., "C4") - used for frequency lookup
  * - label: Display text for the note (e.g., "C") - shown to user
  * 
- * NOTE: This constant appears to be used for generating random target notes,
- * but it's currently hardcoded to C4-B4. The getRandomNote function in Note.tsx
- * references this, but it should probably use the difficulty-specific note arrays
- * (NOTES_EASY, NOTES_MEDIUM, NOTES_HARD) instead to respect the selected difficulty.
- * 
- * This array is structured as an array of objects (rather than a simple object)
- * to allow for easy iteration and mapping in React components.
+ * NOTE: Currently unused. Note.tsx uses NOTES_EASY, NOTES_MEDIUM, NOTES_HARD
+ * for random note generation based on difficulty. This constant could be used
+ * for shared logic or as a fallback if needed.
  */
 export const MUSICAL_ALPHABETS: {
   id: string;

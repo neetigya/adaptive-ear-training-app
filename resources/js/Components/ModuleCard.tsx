@@ -5,8 +5,8 @@
  * Each card represents a different type of ear training exercise.
  * Users can click on a card to navigate to that training mode.
  * 
- * Currently, all cards link to the same route (/training/note),
- * but the structure allows for different routes per training mode.
+ * Each card links to its route from TRAINING_MODES (e.g. /training/note,
+ * /training/interval). Routes are defined per mode in the constants.
  */
 
 import React, { Component } from 'react'
@@ -33,8 +33,10 @@ class ModuleCard extends Component {
     <div className="card-grid">
     	{/* Map over all training modes and create a card for each */}
     	{TRAINING_MODES.map((m) => {
+        console.log(m.route);
         return (
-          <Link href="/training/note"  key={m.id}>
+          
+          <Link href={`/training/${m.route}`}  key={m.id}>
 	          <div
           className="card group cursor-pointer border-2 border-transparent hover:border-primary-500"
           >
