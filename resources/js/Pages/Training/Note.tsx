@@ -22,6 +22,7 @@ import {DIFFICULTY_LEVELS} from './../../Constants/DifficultyLevels'
 import {NOTES_EASY} from './../../Constants/NoteDifficultyEasy'
 import {NOTES_MEDIUM} from './../../Constants/NoteDifficultyMedium'
 import {NOTES_HARD} from './../../Constants/NoteDifficultyHard'
+import Title from '../../Components/Title'
 
 
 
@@ -33,7 +34,7 @@ import {NOTES_HARD} from './../../Constants/NoteDifficultyHard'
 function Note() {
   // Temporary variable to store number of notes for current difficulty.
   // NOTE: Problematic - numberOfNotes is 0 on first render when used in useState below.
-  let numberOfNotes = 0;
+  let numberOfNotes = 7;
   
   /**
    * STATE MANAGEMENT
@@ -80,6 +81,7 @@ function Note() {
       console.log(selectionNotesForDifficulty)
     }
 
+
     
   }
 
@@ -91,7 +93,6 @@ function Note() {
    */
   const [targetNote, setTargetNote] = useState(getRandomNote(numberOfNotes));
   const [result, setResult] = useState(null);
-  
   /**
    * Generates a random integer between min and max (inclusive)
    * 
@@ -111,9 +112,8 @@ function Note() {
    */
   function getRandomNote(nums_alphabets: number){
     const targetNoteNum = getRandomIntegerInclusive(0,nums_alphabets);
-    console.log("tar" + targetNoteNum)
-    console.log(selectionNotesForDifficulty);
 
+    console.log('Note.tsx:116 |  =>', JSON.stringify("target Note " + targetNoteNum + " " + selectionNotesForDifficulty[targetNoteNum]['id'] , null, null));
     return selectionNotesForDifficulty[targetNoteNum]['id'];
   }
 
@@ -167,8 +167,8 @@ function Note() {
       <div>
         <h1 className="page-heading">Note Training</h1>
         <div>
-          <p>Select a Difficulty Level</p>
-         <DifficultySelectionCards/> 
+          <Title titleSize="h2" className="section-title text-center uppercase" title="Select a Difficulty Level" />
+          <DifficultySelectionCards currentLevel = {difficultyLevel}/> 
         </div>
         <PlayButton noteName = 'C' noteType = 'reference' noteNameNum = 'C4' />
         {/* Target note - random note user needs to identify, shown as "?" */}

@@ -33,9 +33,8 @@ class ModuleCard extends Component {
     <div className="card-grid">
     	{/* Map over all training modes and create a card for each */}
     	{TRAINING_MODES.map((m) => {
-        console.log(m.route);
+        console.log('ModuleCard.tsx:36 |',m.route );
         return (
-          
           <Link href={`/training/${m.route}`}  key={m.id}>
 	          <div
           className="card group cursor-pointer border-2 border-transparent hover:border-primary-500"

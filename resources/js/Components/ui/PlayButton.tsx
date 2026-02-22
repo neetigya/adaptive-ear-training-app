@@ -13,7 +13,12 @@
 import React, { Component } from 'react'
 import {playNote} from './../../Utils/AudioService'
 
-class PlayButton extends Component {
+interface PlayButtonProps{
+	noteName: string;
+	noteType: string;
+	noteNameNum: string;
+}
+class PlayButton extends Component<PlayButtonProps> {
 	/**
 	 * Renders a play button with descriptive label
 	 * 
@@ -37,6 +42,7 @@ class PlayButton extends Component {
 			// Fallback for unknown types
 			noteDesc = 'unknown';
 		}
+		console.log(this.props)
 
 		return (
 			<div>

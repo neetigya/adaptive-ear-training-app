@@ -12,8 +12,10 @@
 
 import React, {Component} from 'react'
 import {DIFFICULTY_LEVELS} from './../../Constants/DifficultyLevels'
-
-class DifficultySelectionCard extends Component{
+interface DifficultySelectionCardProps{
+	currentLevel: string
+}
+class DifficultySelectionCard extends Component<DifficultySelectionCardProps>{
 	/**
 	 * Renders difficulty level selection cards
 	 * 
@@ -24,15 +26,19 @@ class DifficultySelectionCard extends Component{
 	 */
 	render(){
 		return (
-			Object.entries(DIFFICULTY_LEVELS).map(([key, value]) => {
+			<div className='grid grid-cols-4 border'>
+			{Object.entries(DIFFICULTY_LEVELS).map(([key, value]) => {
 				return (
-					<div> 
-						<button className ="btn-primary"> {value.label} </button>
-						<div> {value.description}</div>
+					<div key={key} className = {` group relative bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg 
+													${key ===this.props.currentLevel ? 'border-purple-500 border-2' : ''}`}> 
+						<h3 className ="btn-primary" > {value.label} </h3>
+						<div className='absolute hidden group-hover:block bg-gray-800 text-white text-sm rounded p-2 top-full left-0 mt-1 w-80 z-10'>
+							{value.description}
+						</div>
 					 </div>
 					)
-			}
-		)
+			})}
+			</div>
 		)
 	}
 }	
