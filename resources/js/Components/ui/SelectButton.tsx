@@ -11,8 +11,12 @@
  */
 
 import React, {Component} from 'react'
+interface SelectButtonProps{
+	onSelect: ()=> string;
+	noteLabel: string
+}
 
-class SelectButton extends Component{
+class SelectButton extends Component<SelectButtonProps>{
 	/**
 	 * Renders a selectable button for note guessing
 	 * 

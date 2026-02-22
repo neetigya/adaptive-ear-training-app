@@ -11,8 +11,14 @@
  */
 
 import React, {Component} from 'react'
+import { JSX } from 'react'
 
-class Title extends Component{
+interface TitleProps{
+	titleSize: string;
+	className: string;
+	title: string;
+}
+class Title extends Component<TitleProps>{
 	/**
 	 * Renders a heading element with dynamic tag type
 	 * 
@@ -25,7 +31,7 @@ class Title extends Component{
 	render(){
 		// Dynamically assign the HTML tag based on titleSize prop
 		// e.g., if titleSize="h2", Tag will be "h2"
-		const Tag = this.props.titleSize 
+		const Tag = this.props.titleSize as keyof JSX.IntrinsicElements
 		return (<Tag className={this.props.className} >
 					{this.props.title}
 				</Tag>
